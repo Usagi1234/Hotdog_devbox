@@ -1,0 +1,36 @@
+{
+  "app": {
+    "port": "9888",
+    "name": "hotdog",
+    "logLevel": "debug",
+    "gameId": "70"
+  },
+  "auth": {
+    "secretKey": "2230e64b4cb3cc83f8efc12392674fc4"
+  },
+  "db": {
+    "host": "sapi-db-staging.thorthunders.com",
+    "user": "fuse555",
+    "password": "@O603KGboCFOC",
+    "database": "-",
+    "timezone": "+0000"
+  },
+  "dbRead": {
+    "host": "sapi-db-staging.thorthunders.com",
+    "user": "fuse555",
+    "password": "@O603KGboCFOC",
+    "database": "-",
+    "timezone": "+0000"
+  },
+  "table": {
+    "agent": "agent",
+    "commission": "commission"
+  },
+  "api": {
+    "url": "https://seamless.hotdog-gaming.com",
+    "username": "Merchant",
+    "productId": "hotdog",
+    "language": "th",
+    "currency": "THB"
+  }
+}

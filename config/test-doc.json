@@ -1,0 +1,17 @@
+{
+  "app": {
+    "port": "9888",
+    "name": "hotdog-test",
+    "logLevel": "debug"
+  },
+  "auth": {
+    "secretKey": "MVaoC9xKdJesozkX"
+  },
+  "api": {
+    "url": "https://seamless.hotdog-gaming.com",
+    "username": "Merchant",
+    "productId": "hotdog",
+    "language": "th",
+    "currency": "THB"
+  }
+} 
