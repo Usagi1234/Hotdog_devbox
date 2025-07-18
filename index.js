@@ -11,6 +11,8 @@ const server = new Hapi.Server({
   port: process.env.PORT || config.get('app.port')
 })
 
+// No global authentication - each route will handle its own auth
+
 const gracefulStopServer = function () {
   // Wait 10 secs for existing connection to close and then exit.
   // server.stop({timeout: 10 * 1000}, () => {

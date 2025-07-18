@@ -33,6 +33,7 @@ const routes = [
     options: {
       description: 'Generate X-Sign signature for testing',
       tags: ['api'],
+      auth: false,
       validate: validations.generateSignature
     }
   }
