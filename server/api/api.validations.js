@@ -28,13 +28,16 @@ const validations = {
 
   generateSignature: {
     payload: Joi.object({
-      return_url: Joi.string().allow('').optional().description('Return URL'),
-      game_id: Joi.string().optional().description('Game ID'),
-      // Allow additional fields
-      [Joi.string()]: Joi.any().optional()
-    }).min(1).description('Request payload for signature generation'),
+      agent_id: Joi.string().required().description('Agent ID'),
+      game_id: Joi.string().required().description('Game ID'),
+      player_id: Joi.string().required().description('Player ID'),
+      session_id: Joi.string().required().description('Session ID'),
+      language: Joi.string().required().description('Language'),
+      currency: Joi.string().required().description('Currency'),
+      return_url: Joi.string().allow('').optional().description('Return URL')
+    }).description('Request payload for signature generation'),
     options: {
-      allowUnknown: true
+      allowUnknown: false
     }
   }
 }
