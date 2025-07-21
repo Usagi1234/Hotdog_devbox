@@ -66,6 +66,7 @@ module.exports = {
       method: 'post',
       url: `${config.get('api.url')}/singlelogin`,
       headers: {
+        'Content-Type': 'application/json',
         'x-sign': signature
       },
       data: data
@@ -83,6 +84,13 @@ module.exports = {
       };
     } catch (error) {
       console.error('External API error:', error.response?.data || error.message);
+      
+      // Handle specific error mentioned in documentation
+      if (error.response?.data?.error === 'FAILED_GET_BALANCE_AGENT') {
+        logger.error(error, 'Failed to get balance from agent - please provide balance endpoint before launch game');
+        throw new Error('FAILED_GET_BALANCE_AGENT: Please provide balance endpoint before launch game');
+      }
+      
       logger.error(error, 'Failed to single login to Hotdog platform');
       throw error;
     }
