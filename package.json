@@ -9,7 +9,7 @@
     "url": ""
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "docker run --rm -p 9888:9888 hotdog-api",
     "dev": "nodemon index.js",
     "lint": "eslint *.js server test config bin && echo Lint Passed ❤"
   },

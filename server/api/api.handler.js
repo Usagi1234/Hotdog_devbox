@@ -2,8 +2,8 @@
 
 const Boom = require('@hapi/boom')
 const httpStatus = require('http-status')
-const config = require('config')
 const _ = require('lodash')
+const config = require('config')
 const crypto = require('crypto')
 const apiService = require('./api.service')
 const logger = require('../utils/logger')
@@ -125,15 +125,13 @@ module.exports = {
       
       const signature = generateSignature(payload, secret)
       
-      return h.response(response(ERROR.SUCCESS, {
-        payload,
+      // Custom response: only statusCode, timestamp, signature, md5
+      return h.response({
+        statusCode: 200,
+        timestamp: new Date().toISOString(),
         signature,
-        md5: md5SessionId,
-        headers: {
-          'Content-Type': 'application/json',
-          'x-sign': signature
-        }
-      })).code(httpStatus.OK)
+        md5: md5SessionId
+      }).code(httpStatus.OK)
     } catch (error) {
       logger.error(error, 'Failed to generate signature')
       return h.response(response(ERROR.SERVER_ERROR))

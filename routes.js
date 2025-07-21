@@ -2,8 +2,8 @@
 
 const glob = require('glob')
 const path = require('path')
-const _ = require('lodash')
 const config = require('config')
+const _ = require('lodash')
 
 // add ping route by default for health check
 const routes = [{
